@@ -1,9 +1,9 @@
 package models;
 
-public class PaymentType extends Identified{
+public class PaymentType extends Identified<PaymentType>{
     String name;
 
-    public PaymentType(Id id, String name) {
+    public PaymentType(Id<PaymentType> id, String name) {
         super(id);
         this.name = name;
     }

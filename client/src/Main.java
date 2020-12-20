@@ -1,10 +1,10 @@
-import models.Id;
-import models.User;
+import models.UserRoleView;
+import models.UserView;
 import services.UserService;
 
 public class Main {
     public static void main(String[] args) {
-        UserService us = id -> new User(new Id<>(1), "admin", "admin", new Id<>(0));
-        System.out.println(us.getById(new Id<>(1)));
+        UserService us = id -> new UserView(1, "admin", "admin", new UserRoleView(1, "ADMIN"));
+        System.out.println(us.getById(1));
     }
 }

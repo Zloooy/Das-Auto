@@ -1,6 +1,6 @@
 package services;
 
-import models.Car;
+import models.CarView;
 
-public interface CarService extends IdService<Car> {
+public interface CarService extends IdService<CarView> {
 }

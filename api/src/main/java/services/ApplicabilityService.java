@@ -1,4 +1,4 @@
 package services;
-import models.Applicability;
-public interface ApplicabilityService extends IdService<Applicability> {
+import models.ApplicabilityView;
+public interface ApplicabilityService extends IdService<ApplicabilityView> {
 }

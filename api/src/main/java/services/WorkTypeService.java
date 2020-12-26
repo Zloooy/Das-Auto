@@ -1,6 +1,6 @@
 package services;
 
-import models.WorkType;
+import models.WorkTypeView;
 
-public interface WorkTypeService extends IdService<WorkType> {
+public interface WorkTypeService extends IdService<WorkTypeView> {
 }

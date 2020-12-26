@@ -1,6 +1,6 @@
 package services;
 
-import models.ServiceRequest;
+import models.ServiceRequestView;
 
-public interface ServiceRequestService extends IdService<ServiceRequest> {
+public interface ServiceRequestService extends IdService<ServiceRequestView> {
 }

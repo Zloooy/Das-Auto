@@ -1,6 +1,6 @@
 package services;
 
-import models.Order;
+import models.OrderView;
 
-public interface OrderService extends IdService<Order>{
+public interface OrderService extends IdService<OrderView>{
 }

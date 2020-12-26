@@ -1,6 +1,6 @@
 package services;
 
-import models.Cheque;
+import models.ChequeView;
 
-public interface ChequeService  extends IdService<Cheque> {
+public interface ChequeService  extends IdService<ChequeView> {
 }

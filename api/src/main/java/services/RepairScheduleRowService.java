@@ -1,6 +1,6 @@
 package services;
 
-import models.RepairScheduleRow;
+import models.RepairScheduleRowView;
 
-public interface RepairScheduleRowService extends IdService<RepairScheduleRow> {
+public interface RepairScheduleRowService extends IdService<RepairScheduleRowView> {
 }

@@ -1,6 +1,6 @@
 package services;
 
-import models.Part;
+import models.PartView;
 
-public interface PartService extends IdService<Part> {
+public interface PartService extends IdService<PartView> {
 }

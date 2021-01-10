@@ -3,6 +3,7 @@ package com.example.client.component;
 import com.example.client.model.*;
 import com.example.client.repository.*;
 import com.example.client.utils.ListInserter;
+import constants.UserRoleNames;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -32,16 +33,20 @@ public class DataInitializer implements ApplicationRunner {
     private CarMarkRepository carMarkRepository;
 
 
-    private static final List<String> userRoles = Arrays.asList("Администратор");
+    private static final List<String> userRoles = Arrays.asList(UserRoleNames.ADMIN, UserRoleNames.MAIN_MECHANIC, UserRoleNames.ORDER_MANAGER, UserRoleNames.SALES_MANAGER);
     private static final List<String> orderStatuses = Arrays.asList("Завершен", "В процессе", "Отменён");
     private static final List<String> partStatuses = Arrays.asList("В пути", "На складе", "Списана");
     private static final List<String> paymentTypes = Arrays.asList("Наличными","Картой");
     private static final List<String> mechanicSpecializations = Arrays.asList("Маляр","Фрезеровщик","Сварщик");
     private static final List<String> carMarks = Arrays.asList("Mercedes","BMW","Lada");
+
+    private static final List<String> logins = Arrays.asList("admin", "main_mechanic", "order_manager", "sales_manager");
+    private static final String default_password = "1234";
     @Override
     public void run(ApplicationArguments args) throws Exception {
         createRoles();
-        createAdmin();
+        //createAdmin();
+        createTestUsers();
         createOrderStatuses();
         createPartStatuses();
         createPaymentTypes();
@@ -53,13 +58,17 @@ public class DataInitializer implements ApplicationRunner {
         AtomicLong i = new AtomicLong(1);
         userRoleRepository.saveAll(userRoles.stream().map((roleName)->new UserRole(i.getAndIncrement(),roleName)).collect(Collectors.toList()));
     }
-    private void createAdmin()
+    private void createTestUsers()
+        {
+            ListInserter.insertFromList(userRepository, i -> new User(i, logins.get((int)(i-1)), default_password, userRoleRepository.findUserRolesByName(userRoles.get((int)(i-1)))), logins);
+        }
+    /*private void createAdmin()
     {
         userRepository.save(new User(1, "admin","1234", userRoleRepository.findById(1L).orElse(null)));
-    }
+    }*/
     private void createOrderStatuses()
     {
-        ListInserter.insertFromList(orderStatusRepository, i -> new OrderStatus(i, orderStatuses.get((int)i-1)),orderStatuses);
+        ListInserter.insertFromList(orderStatusRepository, i -> new OrderStatus(i, orderStatuses.get((int)i-1)), orderStatuses);
     }
     private void createPartStatuses()
     {

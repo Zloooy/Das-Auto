@@ -27,6 +27,8 @@ public class LoginScreen extends JFrame implements ActionListener {
 
     public LoginScreen() throws HeadlessException {
         setSize(640,640);
+        setLocationRelativeTo(null);
+        getRootPane().setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         container.setLayout(new BorderLayout());
         Box formBox = Box.createVerticalBox();
         Stream.of(Box.createVerticalStrut(30), loginLabel, loginField, Box.createVerticalStrut(30), passwordLabel, passwordField).forEach((label)->{

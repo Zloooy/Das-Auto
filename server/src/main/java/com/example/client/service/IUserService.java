@@ -5,4 +5,5 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface IUserService extends IdService<User>, CRUDPageService<User> {
+    User getByLogin(String login);
 }

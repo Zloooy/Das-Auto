@@ -29,6 +29,10 @@ public class UserView extends IdentifiedView {
         return role;
     }
 
+    public UserView() {
+        super(1);
+        role = new UserRoleView();
+    }
     public UserView(long id, String login, String password, UserRoleView role) {
         super(id);
         this.login = login;

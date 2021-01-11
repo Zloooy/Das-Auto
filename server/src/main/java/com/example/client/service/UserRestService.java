@@ -6,4 +6,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserRestService extends CRUDPageRestService<User, UserRepository> implements IUserService{
+    @Override
+    public User getByLogin(String login) {
+        return crudRepository.getUserByLogin(login);
+    }
 }
